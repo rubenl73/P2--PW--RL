@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <title>proj2-RubenL</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script>
+        function onAddAluno() {
+            var nomeAluno = document.getElementById("nomeAluno").value;
+            var numeroCamisola = document.getElementById("numeroCamisola").value;
+            var posicaoAluno = document.getElementById("posicaoAluno").value;
+            var fotoAluno = document.getElementById("fotoAluno").files[0];
+            var reader = new FileReader();
+            var listaAlunos = document.getElementById("listaAlunos");
+            var alertaNumero = document.getElementById("alertaNumero");
+
+            if (nomeAluno == "") {
+                alert("Tem de preencher o nome do jogador.");
+                return;
+            }
+
+            if (numeroCamisola == "" || isNaN(numeroCamisola)) {
+                alertaNumero.className = "";
+                return;
+            } else {
+                alertaNumero.className = "esconde";
+            }
+
+            reader.onload = function (e) {
+                var imgHtml = `<img src="${e.target.result}" class="imagem-jogador">`;
+                listaAlunos.innerHTML += `<li>${imgHtml}<div>${nomeAluno} - Nº ${numeroCamisola} - ${posicaoAluno}<br><span class='mensagem-boas-vindas'>Bem-vindo ao clube!</span></div></li>`;
+                alert("Jogador adicionado com sucesso!");
+            };
+            if (fotoAluno) {
+                reader.readAsDataURL(fotoAluno);
+            }
+
+            document.getElementById("nomeAluno").value = "";
+            document.getElementById("numeroCamisola").value = "";
+            document.getElementById("posicaoAluno").value = "";
+            document.getElementById("fotoAluno").value = null; // Limpar a seleção de arquivo
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("numeroCamisola").addEventListener("keyup", function (evt) {
+                var numero = evt.target.value;
+                var alertaNumero = document.getElementById("alertaNumero");
+
+                if (isNaN(numero)) {
+                    alertaNumero.className = "";
+                } else {
+                    alertaNumero.className = "esconde";
+                }
+            });
+
+            onLoadBtnChangeStyle();
+        });
+    </script>
+</head>
+<body id="home">
+    <header class="hero">
+        <h1 class="logo">WhatClub?</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="#contactos">Contactos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main">
+        <form id="formulario">
+            <fieldset>
+                <label>Nome:</label>
+                <input id="nomeAluno" type="text" />
+                <label>Número da Camisola:</label>
+                <input id="numeroCamisola" maxlength="2" type="text" />
+                <label>Posição:</label>
+                <select id="posicaoAluno" required>
+                    <option value="">Selecione a posição</option>
+                    <option value="Avançado">Avançado</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Defesa">Defesa</option>
+                    <option value="Guarda Redes">Guarda Redes</option>
+                </select>
+                <label>Foto:</label>
+                <input id="fotoAluno" type="file" accept="image/*">
+                <p id="alertaNumero" class="esconde" style="color:red">O número da camisola não é válido</p>
+                <br>
+                <input class="botaoAluno" id="botaoAluno" type="button" onclick="onAddAluno()" value="Adicionar Jogador"/>
+            </fieldset>
+        </form>
+        <ul id="listaAlunos">
+        </ul>
+        <br>
+    </main>
+    <footer class="footer" id="contactos">
+        <p>Copyright &copy; WhatClub.com ou 912345678</p>
+    </footer>
+</body>
+</html>

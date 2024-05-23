@@ -1,0 +1,212 @@
+body {
+    background-color: #fff; /* Melhor para legibilidade */
+    font-family: "Roboto", sans-serif;
+    color: #afafaf; /* Cor mais escura para melhor contraste */
+    border: 1px solid #162028;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.esconde {
+    display: none;
+}
+
+h1 {
+    font-family: "Viaoda Libre", serif;
+}
+
+.menu {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.menu ul {
+    list-style-type: none; /* Remove os marcadores */
+    padding: 0; /* Remove o padding padrão */
+    margin: 0; /* Remove a margem padrão */
+}
+
+.menu li {
+    display: inline-block; /* Isso ajudará a alinhar os itens do menu horizontalmente */
+}
+
+.menu li a {
+    color: #008cff;
+    border: 1px solid #008cff;
+    border-radius: 5px;
+    padding: 10px; /* Adicionado padding para melhorar a acessibilidade */
+}
+
+.hero {
+    background-color: #162028;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px; /* Ajuste no padding para alinhar elementos */
+}
+
+.logo {
+    font-size: 36px;
+    letter-spacing: 2px;
+}
+
+.hero nav ul {
+    margin: 10px 20px 0;
+    text-align: right;
+    display: flex;
+}
+
+.hero nav li {
+    margin-left: 16px;
+}
+
+.hero nav a {
+    padding: 16px;
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ***** FORMULÁRIO ***** */
+.main {
+    color: black; /* Assegura legibilidade */
+    flex: 1; /* Permite que o conteúdo principal cresça para ocupar o espaço disponível */
+    padding-bottom: 60px; /* Adiciona um espaço inferior para evitar sobreposição do footer */
+    width: 75%;
+    margin: auto;
+    box-sizing: border-box; /* Assegura que padding não afete a largura */
+}
+
+.main input, .main select {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #bbb;
+    padding: .75em;
+    margin-bottom: 1.5em;
+    font-size: 1em;
+    width: 100%; /* Garante consistência */
+    box-sizing: border-box; /* Assegura que padding não afete a largura */
+}
+
+form {
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    margin: 50px auto;
+    box-shadow: 3px 3px 10px #333;
+    width: 350px;
+    padding: 1em;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+.botaoAluno {
+    background-color: #cc9900;
+    color: white; 
+    cursor: pointer;
+}
+
+.footer {
+    background-color: #162028;
+    color: #008cff;
+    display: flex;
+    justify-content: center; /* Mantém o conteúdo centralizado horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    padding: 10px 0; 
+    text-align: center; /* Garante que o texto esteja centralizado dentro do elemento */
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.imagem-jogador {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+#listaAlunos {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaço entre os itens */
+    padding: 0;
+    margin: 0;
+}
+
+#listaAlunos li {
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: calc(25% - 20px); /* Responsivo, quatro itens por linha */
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+#listaAlunos li:hover {
+    transform: translateY(-10px); /* Efeito hover */
+}
+
+#listaAlunos li header {
+    background-color: #cc9900;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#listaAlunos li div {
+    padding: 15px;
+    text-align: center;
+    flex: 1; /* Faz o conteúdo crescer para ocupar o espaço */
+}
+
+#listaAlunos li footer {
+    background-color: #162028;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+.mensagem-boas-vindas {
+    font-size: 0.85em;
+    color: #555;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 1024px) {
+    #listaAlunos li {
+        width: calc(33.33% - 20px); /* Três itens por linha em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    #listaAlunos li {
+        width: calc(50% - 20px); /* Dois itens por linha em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    #listaAlunos li {
+        width: calc(100% - 20px); /* Um item por linha em telas menores */
+    }
+}
+
+.main_not{
+    margin-left: 5%;
+    margin-right: 5%;
+}
